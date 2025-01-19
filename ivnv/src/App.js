@@ -1,7 +1,6 @@
 import "./App.css";
 import React, { useState } from "react";
 import Quiz from "./components/Quiz.jsx";
-// require('dotenv').config();
 
 
 function App() {
@@ -11,10 +10,12 @@ function App() {
   const [quizData, setQuizData] = useState(null); // Quiz data
 
   const plantIdApiUrl = "https://plant.id/api/v3/identification";
-  const plantIdApiKey = "n7Aqs2wfNPIZaaolNPdBbCe6agi3ortf8qMPfLIFPlIZZQJd6M"; // Securely load from environment variables
-
-  //const nebiusApiKey = "eyJhbGciOiJIUzI1NiIsImtpZCI6IlV6SXJWd1h0dnprLVRvdzlLZWstc0M1akptWXBvX1VaVkxUZlpnMDRlOFUiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJnb29nbGUtb2F1dGgyfDEwMDUyMjE1NDMzMDAxMjk0NTQ4OCIsInNjb3BlIjoib3BlbmlkIG9mZmxpbmVfYWNjZXNzIiwiaXNzIjoiYXBpX2tleV9pc3N1ZXIiLCJhdWQiOlsiaHR0cHM6Ly9uZWJpdXMtaW5mZXJlbmNlLmV1LmF1dGgwLmNvbS9hcGkvdjIvIl0sImV4cCI6MTg5NDk2MjE1NywidXVpZCI6IjJjMzQyZGE3LTc0NTItNDI3MC04ZTNiLWU0MzFlNDM4MzBhYSIsIm5hbWUiOiJJdnlFbnZ5IiwiZXhwaXJlc19hdCI6IjIwMzAtMDEtMThUMTA6MjI6MzcrMDAwMCJ9.qMo7kcdkIULjYhMIYgdOG0s4qrqYHHlXKHY6MrUZx_8";
+  const plantIdApiKey = process.env.REACT_APP_PLANTAPI; // Securely load from environment variables
+  const nebiusApiKey = process.env.REACT_APP_NEBIUSKEY
   // Convert file to base64
+
+  console.log(plantIdApiKey)
+  console.log(nebiusApiKey)
   function fileToBase64(file) {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
