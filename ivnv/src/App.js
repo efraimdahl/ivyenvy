@@ -1,14 +1,7 @@
 import "./App.css";
 import React, { useState } from "react";
 import Quiz from "./components/Quiz.jsx";
-require('dotenv').config();
-
-const OpenAI = require('openai');
-const client = new OpenAI({
-  baseURL: "https://api.studio.nebius.ai/v1/",
-  // apiKey: "eyJhbGciOiJIUzI1NiIsImtpZCI6IlV6SJWd1h0dnprLVRvdzlLZWstc0M1akptWXBvX1VaVkxUZlpnMDRlOFUiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJnb29nbGUtb2F1dGgyfDEwMDUyMjE1NDMzMDAxMjk0NTQ4OCIsInNjb3BlIjoib3BlbmlkIG9mZmxpbmVfYWNjZXNzIiwiaXNzIjoiYXBpX2tleV9pc3N1ZXIiLCJhdWQiOlsiaHR0cHM6Ly9uZWJpdXMtaW5mZXJlbmNlLmV1LmF1dGgwLmNvbS9hcGkvdjIvIl0sImV4cCI6MTg5NDk2MjE1NywidXVpZCI6IjJjMzQyZGE3LTc0NTItNDI3MC04ZTNiLWU0MzFlNDM4MzBhYSIsIm5hbWUiOiJJdnlFbnZ5IiwiZXhwaXJlc19hdCI6IjIwMzAtMDEtMThUMTA6MjI6MzcrMDAwMCJ9.qMo7kcdkIULjYhMIYgdOG0s4qrqYHHlXKHY6MrUZx_8", // Use your environment variable for security
-  apiKey: process.env.NEBIUS_API_KEY,
-});
+// require('dotenv').config();
 
 
 function App() {
@@ -19,13 +12,6 @@ function App() {
 
   const plantIdApiUrl = "https://plant.id/api/v3/identification";
   const plantIdApiKey = "n7Aqs2wfNPIZaaolNPdBbCe6agi3ortf8qMPfLIFPlIZZQJd6M"; // Securely load from environment variables
-
-  // const OpenAI = require('openai');
-  // const client = new OpenAI({
-  //   baseURL: "https://api.studio.nebius.ai/v1/",
-  //   apiKey: "eyJhbGciOiJIUzI1NiIsImtpZCI6IlV6SXJWd1h0dnprLVRvdzlLZWstc0M1akptWXBvX1VaVkxUZlpnMDRlOFUiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJnb29nbGUtb2F1dGgyfDEwMDUyMjE1NDMzMDAxMjk0NTQ4OCIsInNjb3BlIjoib3BlbmlkIG9mZmxpbmVfYWNjZXNzIiwiaXNzIjoiYXBpX2tleV9pc3N1ZXIiLCJhdWQiOlsiaHR0cHM6Ly9uZWJpdXMtaW5mZXJlbmNlLmV1LmF1dGgwLmNvbS9hcGkvdjIvIl0sImV4cCI6MTg5NDk2MjE1NywidXVpZCI6IjJjMzQyZGE3LTc0NTItNDI3MC04ZTNiLWU0MzFlNDM4MzBhYSIsIm5hbWUiOiJJdnlFbnZ5IiwiZXhwaXJlc19hdCI6IjIwMzAtMDEtMThUMTA6MjI6MzcrMDAwMCJ9.qMo7kcdkIULjYhMIYgdOG0s4qrqYHHlXKHY6MrUZx_8", // Use your environment variable for security
-  //   dangerouslyAllowBrowser: true
-  // });
 
   //const nebiusApiKey = "eyJhbGciOiJIUzI1NiIsImtpZCI6IlV6SXJWd1h0dnprLVRvdzlLZWstc0M1akptWXBvX1VaVkxUZlpnMDRlOFUiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJnb29nbGUtb2F1dGgyfDEwMDUyMjE1NDMzMDAxMjk0NTQ4OCIsInNjb3BlIjoib3BlbmlkIG9mZmxpbmVfYWNjZXNzIiwiaXNzIjoiYXBpX2tleV9pc3N1ZXIiLCJhdWQiOlsiaHR0cHM6Ly9uZWJpdXMtaW5mZXJlbmNlLmV1LmF1dGgwLmNvbS9hcGkvdjIvIl0sImV4cCI6MTg5NDk2MjE1NywidXVpZCI6IjJjMzQyZGE3LTc0NTItNDI3MC04ZTNiLWU0MzFlNDM4MzBhYSIsIm5hbWUiOiJJdnlFbnZ5IiwiZXhwaXJlc19hdCI6IjIwMzAtMDEtMThUMTA6MjI6MzcrMDAwMCJ9.qMo7kcdkIULjYhMIYgdOG0s4qrqYHHlXKHY6MrUZx_8";
   // Convert file to base64
@@ -108,60 +94,60 @@ async function identifyPlant(base64Image) {
   }
 }
 
-  // Generate a quiz question using Nebius API
-async function generateQuiz(plantName) {
-  try {
-    // Define the prompt
-    const prompt = `Can you generate a question for ${plantName} using the following format:
-    {
-      question: \`insert question here\`,
-      answers: [
-        "A", // first answer
-        "B", // second answer
-        "C", // third answer
-      ].sort(() => Math.random() - 0.5), // Shuffle answers
-      correctIndex: 0, // Index of the correct answer before shuffle
-    } Please copy everything exactly between {} and change everything between "".`;
+//   // Generate a quiz question using Nebius API
+// async function generateQuiz(plantName) {
+//   try {
+//     // Define the prompt
+//     const prompt = `Can you generate a question for ${plantName} using the following format:
+//     {
+//       question: \`insert question here\`,
+//       answers: [
+//         "A", // first answer
+//         "B", // second answer
+//         "C", // third answer
+//       ].sort(() => Math.random() - 0.5), // Shuffle answers
+//       correctIndex: 0, // Index of the correct answer before shuffle
+//     } Please copy everything exactly between {} and change everything between "".`;
 
-    // Make the API call
-    const completion = await client.chat.completions.create({
-      model: "meta-llama/Meta-Llama-3.1-8B-Instruct",
-      messages: [
-        {
-          role: "user",
-          content: prompt,
-        },
-      ],
-      temperature: 0.6,
-    });
+//     // Make the API call
+//     const completion = await client.chat.completions.create({
+//       model: "meta-llama/Meta-Llama-3.1-8B-Instruct",
+//       messages: [
+//         {
+//           role: "user",
+//           content: prompt,
+//         },
+//       ],
+//       temperature: 0.6,
+//     });
 
-    // Parse the response
-    const quizData = JSON.parse(completion.choices[0].message.content);
-    console.log('Generated Quiz Data:', quizData);
+//     // Parse the response
+//     const quizData = JSON.parse(completion.choices[0].message.content);
+//     console.log('Generated Quiz Data:', quizData);
 
-    // Update state with the quiz data
-    setQuizData(quizData);
-  } catch (error) {
-    console.error("Error generating quiz with Nebius API:", error);
-    alert("Failed to generate quiz. Please try again.");
+//     // Update state with the quiz data
+//     setQuizData(quizData);
+//   } catch (error) {
+//     console.error("Error generating quiz with Nebius API:", error);
+//     alert("Failed to generate quiz. Please try again.");
+//   }
+// }
+
+
+  // Generate a quiz question based on the plant name
+  function generateQuiz(plantName) {
+    const sampleQuiz = {
+        question: "What is the common name for Dracaena fragrans?",
+        answers: [
+          "Corn Plant",
+          "Dragon Tree",
+          "Red-Edged Dracaena",
+        ].sort(() => Math.random() - 0.5),
+        correctIndex: 0,
+    };
+
+    setQuizData(sampleQuiz);
   }
-}
-
-
-  // // Generate a quiz question based on the plant name
-  // function generateQuiz(plantName) {
-  //   const sampleQuiz = {
-  //     question: `What is the name of this plant?`,
-  //     answers: [
-  //       plantName, // Correct answer
-  //       "Rose", // Placeholder incorrect answer
-  //       "Tulip", // Placeholder incorrect answer
-  //     ].sort(() => Math.random() - 0.5), // Shuffle answers
-  //     correctIndex: 0, // Correct index before shuffle
-  //   };
-
-  //   setQuizData(sampleQuiz);
-  // }
 
   return (
     <div className="App">
